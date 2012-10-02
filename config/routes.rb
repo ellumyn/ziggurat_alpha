@@ -8,6 +8,10 @@ SampleApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+  
+  match '/messages', to: 'static_pages#pending'
+  match '/calendar', to: 'static_pages#pending'
+  match '/contact_list', to: 'static_pages#contact_list'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

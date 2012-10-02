@@ -18,4 +18,10 @@ class StaticPagesController < ApplicationController
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
   end
+
+  def contact_list
+    if signed_in?
+      @users  = User.paginate(page: params[:page], per_page: 10)
+    end
+  end
 end

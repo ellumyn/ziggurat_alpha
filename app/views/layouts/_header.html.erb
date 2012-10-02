@@ -1,13 +1,26 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "UApp: Ziggurat Alpha", root_path, id: "logo" %>
+   	  <% if !signed_in? %>
+        <%= link_to "UApp: Ziggurat Alpha", root_path, id: "logo" %>
+      <% else %>
+        <%= link_to "UApp", root_path, id: "logo" %>
+      <% end %>
       <nav>
+      	<ul class="nav pull-left">
+      	  <% if signed_in? %>
+      	    <li><%= link_to "Contacts", contact_list_path %></li>
+            <li><%= link_to "Messages", messages_path %></li>
+            <li><%= link_to "Calendar", calendar_path %></li>
+      	  <% end %>
+      	</ul>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+          	<% if current_user.admin?%>
+          		<li><%= link_to "Users", users_path %></li>
+          	<% end %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
