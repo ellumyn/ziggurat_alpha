@@ -1,44 +1,78 @@
 <header class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-   	  <% if !signed_in? %>
-        <%= link_to "UApp: Ziggurat Alpha", root_path, id: "logo" %>
-      <% else %>
-        <%= link_to "UApp", root_path, id: "logo" %>
-      <% end %>
-      <nav>
-      	<ul class="nav pull-left">
-      	  <% if signed_in? %>
-      	    <li><%= link_to "Contacts", contact_list_path %></li>
-            <li><%= link_to "Messages", messages_path %></li>
-            <li><%= link_to "Calendar", calendar_path %></li>
-      	  <% end %>
-      	</ul>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-          <% if signed_in? %>
-          	<% if current_user.admin?%>
-          		<li><%= link_to "Users", users_path %></li>
-          	<% end %>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user)  %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
+	<div class="navbar-inner">
+		<div class="container">
+			<% if !signed_in? %>
+			<%= link_to "UApp: Ziggurat Alpha", root_path, id: "logo" %>
+			<% else %>
+			<%= link_to "UApp", root_path, id: "logo" %>
+			<% end %>
+			<nav>
+				<ul class="nav pull-left">
+					<% if signed_in? %>
+					<li>
+						<%= link_to "Contacts", contact_list_path %>
+					</li>
+					<li>
+						<%= link_to "Messages", messages_path %>
+					</li>
+					<li>
+						<%= link_to "Calendar", calendar_path %>
+					</li>
+					<% end %>
+				</ul>
+				<ul class="nav pull-right">
+					<li>
+						<%= link_to "Home", root_path %>
+					</li>
+					<li>
+						<%= link_to "Help", help_path %>
+					</li>
+					<% if signed_in? %>
+					<% if current_user.admin?%>
+					<li>
+						<%= link_to "Users", users_path %>
+					</li>
+					<li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Admin <b class="caret"></b> </a>
+						<ul class="dropdown-menu">
+							<li>
+								<%= link_to "Scope", '#' %>
+							</li>
+							<li>
+								<%= link_to "Moderators", '#'  %>
+							</li>
+							<li>
+								<%= link_to "Members", '#'  %>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<%= link_to "Users", users_path%>
+							</li>
+						</ul>
+					</li>
+					<% end %>
+					<li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account <b class="caret"></b> </a>
+						<ul class="dropdown-menu">
+							<li>
+								<%= link_to "Profile", current_user %>
+							</li>
+							<li>
+								<%= link_to "Settings", edit_user_path(current_user)  %>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<%= link_to "Sign out", signout_path, method: "delete" %>
+							</li>
+						</ul>
+					</li>
+					<% else %>
+					<li>
+						<%= link_to "Sign in", signin_path %>
+					</li>
+					<% end %>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </header>

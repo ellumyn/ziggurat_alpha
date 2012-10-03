@@ -9,9 +9,10 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   
-  match '/messages', to: 'static_pages#pending'
-  match '/calendar', to: 'static_pages#pending'
-  match '/contact_list', to: 'static_pages#contact_list'
+  match '/messaging', to: 'static_pages#messaging'
+  match '/calendar', to: 'static_pages#calendar'
+  # match '/contact_list', to: 'static_pages#contact_list'
+  match '/contact_list', to: 'users#index'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

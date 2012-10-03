@@ -5,4 +5,5 @@ en:
   activerecord:
     attributes:
       user:
-        password_digest: "Password"
+        password_digest: "password"
+        phone: "phone number"

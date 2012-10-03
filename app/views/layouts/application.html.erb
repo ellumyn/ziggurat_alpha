@@ -13,7 +13,21 @@
 			<% flash.each do |key, value| %>
 			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
 			<% end %>
-			<%= yield %>
+
+			<div class="row">
+
+				<div class="span10">
+					<%= yield %>
+				</div>
+				<aside class="span2">
+					<section>
+						<h2>
+							<%= render 'layouts/ads' %>
+						</h2>
+					</section>
+				</aside>
+			</div>
+
 			<%= render 'layouts/footer' %>
 			<%= debug(params) if Rails.env.development? %>
 		</div>
