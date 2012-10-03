@@ -1,0 +1,11 @@
+<section>
+	<h2>Contacts</h2>
+	<%= will_paginate @users, page_links: false%>
+
+	<ul class="users">
+		<%= render @users%>
+	</ul>
+
+	<%= will_paginate @users, page_links: false%>
+	<i>Reduce to scopes</i>
+</section>
