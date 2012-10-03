@@ -1,7 +1,10 @@
 SampleApp::Application.routes.draw do
+  get "scopes/new"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :scopes, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
 
@@ -9,11 +12,11 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   
-  match '/messaging', to: 'static_pages#messaging'
+  match '/messages', to: 'static_pages#messaging'
   match '/calendar', to: 'static_pages#calendar'
-  # match '/contact_list', to: 'static_pages#contact_list'
-  match '/contact_list', to: 'users#index'
 
+
+  match '/contact_list', to: 'users#index'
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

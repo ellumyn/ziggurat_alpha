@@ -5,5 +5,6 @@ class CreateScopes < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :scopes, :name, unique: true
   end
 end
