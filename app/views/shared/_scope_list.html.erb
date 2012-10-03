@@ -1,0 +1,10 @@
+<section>
+	<h2>Scopes</h2>
+	<%= will_paginate @scopes, page_links: false%>
+
+	<ul class="users">
+		<%= render @scopes%>
+	</ul>
+
+	<%= will_paginate @scopes, page_links: false%>
+</section>

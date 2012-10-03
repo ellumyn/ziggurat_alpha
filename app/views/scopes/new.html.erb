@@ -1,0 +1,23 @@
+<% provide(:title, 'Create Scope') %> <h1>Create Scope</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+
+	</div>
+</div>
+
+<div class="row">
+	<aside class="span3">
+		<%= render 'shared/scope_list' %>
+	</aside>
+	<div class="span7">
+		<%= form_for(@scope) do |f| %>
+		<%= render 'shared/error_messages', object: f.object  %>
+
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+
+		<%= f.submit "Create scope", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>
