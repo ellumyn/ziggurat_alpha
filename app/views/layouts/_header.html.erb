@@ -9,11 +9,33 @@
 			<nav>
 				<ul class="nav pull-left">
 					<% if signed_in? %>
-					<li>
-						<%= link_to "Contacts", contact_list_path %>
+					<li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Contacts
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<%= link_to "My Scopes", new_scope_path %>
+							</li>
+							<li>
+								<%= link_to "Contacts", contact_list_path  %>
+							</li>
+						</ul>
 					</li>
-					<li>
-						<%= link_to "Messages", messages_path %>
+					<li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Messages
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<%= link_to "Inbox", "#" %>
+							</li>
+							<li>
+								<%= link_to "Outbox", "#"  %>
+							</li>
+						</ul>
 					</li>
 					<li>
 						<%= link_to "Calendar", calendar_path %>
